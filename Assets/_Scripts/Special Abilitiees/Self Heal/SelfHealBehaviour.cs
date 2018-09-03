@@ -9,7 +9,7 @@ namespace RPG.PlayerCH
         Player player=null;
        
        
-        public override void Use(AbilityUseParams useParams)
+        public override void Use(GameObject target)
         {
             PlayParticleEfect();
             var playerHealth = player.GetComponent<HealthSystem>();

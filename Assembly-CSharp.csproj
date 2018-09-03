@@ -89,7 +89,6 @@
     <Compile Include="Assets\_Prefab\Particles\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\_Scripts\Camera &amp; UI\CameraRaycaster.cs" />
     <Compile Include="Assets\_Scripts\Core\AudioTrigger.cs" />
-    <Compile Include="Assets\_Scripts\Core\IDamagable.cs" />
     <Compile Include="Assets\_Scripts\Core\Projectile.cs" />
     <Compile Include="Assets\_Scripts\Core\SpinMe.cs" />
     <Compile Include="Assets\_Scripts\Core\Weapon.cs" />

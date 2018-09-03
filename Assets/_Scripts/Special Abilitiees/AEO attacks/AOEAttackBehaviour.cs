@@ -8,20 +8,20 @@ namespace RPG.PlayerCH
 {
     public class AOEAttackBehaviour : AbilityBehaviour
     {
-        public override void Use(AbilityUseParams useParams)
+        public override void Use(GameObject target)
         {
-            DealRadialDamage(useParams);
+            DealRadialDamage();
             PlayParticleEfect();
             PlayAbilitySound();
         }
-        private void DealRadialDamage(AbilityUseParams useParams)
+        private void DealRadialDamage()
         {
             RaycastHit[] hits = Physics.SphereCastAll(transform.position, (config as AOEAttackConfig).GetAOERadius(), Vector3.up, (config as AOEAttackConfig).GetAOERadius());
-            float damageToDeal = (config as AOEAttackConfig).GetAOEDamageToEachTarget() + useParams.baseDamage;
+            float damageToDeal = (config as AOEAttackConfig).GetAOEDamageToEachTarget();
             foreach (RaycastHit hit in hits)
             {
                 bool hitPlayer = hit.collider.gameObject.GetComponent<Player>();
-                var damagable = hit.collider.gameObject.GetComponent<IDamagable>();
+                var damagable = hit.collider.gameObject.GetComponent<HealthSystem>();
                 if (damagable != null && !hitPlayer)
                 {
                     damagable.TakeDamage(damageToDeal);

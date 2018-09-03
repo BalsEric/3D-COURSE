@@ -11,6 +11,7 @@ namespace RPG.PlayerCH
         [SerializeField] float regenPointsPerSecond = 5f;
         [SerializeField] Image energyBar;
         float currentEnergyPoints;
+        [SerializeField] AudioClip outOfEnergy;
         AudioSource audioSource;
         [SerializeField] AbilityConfig[] abilities;
         void Start()
@@ -19,6 +20,7 @@ namespace RPG.PlayerCH
             AttachInitialAbilities();
             UpdateEnergyBar();
             audioSource = GetComponent<AudioSource>();
+           
         }
         
         void Update()
@@ -51,16 +53,20 @@ namespace RPG.PlayerCH
             var pointsToAdd = regenPointsPerSecond * Time.deltaTime;
             currentEnergyPoints = Mathf.Clamp(currentEnergyPoints + pointsToAdd, 0, maxEnergyPoints);
         }
-        public void AttemptSpecialAbility(int abilityIndex)
+        public void AttemptSpecialAbility(int abilityIndex,GameObject target = null)
         {
             var energyCost = abilities[abilityIndex].GetEnergyCost();
             if (energyCost<= currentEnergyPoints)
             {
                 ConsumeEnergy(energyCost);
+                abilities[abilityIndex].Use(target);
             }
             else
             {
-                //
+                if( !audioSource.isPlaying)
+                {
+                    audioSource.PlayOneShot(outOfEnergy);
+                }
             }
 
         }

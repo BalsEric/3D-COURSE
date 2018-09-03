@@ -5,7 +5,7 @@ using RPG.PlayerCH;
 using RPG.Core;
 namespace RPG.EnemyCH
 {
-    public class Enemy : MonoBehaviour,IDamagable
+    public class Enemy : MonoBehaviour
     {
 
        
