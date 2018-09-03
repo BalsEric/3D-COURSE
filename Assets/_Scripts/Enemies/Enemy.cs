@@ -20,11 +20,11 @@ namespace RPG.EnemyCH
         [SerializeField] GameObject projectileToUse;
         [SerializeField] GameObject projetileSocket;
         bool IsAttacking = false;
-        Player player = null;
+        PlayerMovement player = null;
        
         private void Start()
         {
-            player = FindObjectOfType<Player>();
+            player = FindObjectOfType<PlayerMovement>();
             
         }
         public void TakeDamage(float amount)

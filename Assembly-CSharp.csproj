@@ -95,9 +95,9 @@
     <Compile Include="Assets\_Scripts\Enemies\Enemy.cs" />
     <Compile Include="Assets\_Scripts\Enemies\EnemyUI.cs" />
     <Compile Include="Assets\_Scripts\Player\CameraFollow.cs" />
-    <Compile Include="Assets\_Scripts\Player\CharacterMovement.cs" />
+    <Compile Include="Assets\_Scripts\Player\Character.cs" />
     <Compile Include="Assets\_Scripts\Player\HealthSystem.cs" />
-    <Compile Include="Assets\_Scripts\Player\Player.cs" />
+    <Compile Include="Assets\_Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\_Scripts\Player\SpecialAbilities.cs" />
     <Compile Include="Assets\_Scripts\Special Abilitiees\AbilityBehaviour.cs" />
     <Compile Include="Assets\_Scripts\Special Abilitiees\AbilityConfig.cs" />

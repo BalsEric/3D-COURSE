@@ -246,7 +246,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4934216656418766}
-  - component: {fileID: 95061553466694002}
   - component: {fileID: 54847353212444730}
   - component: {fileID: 136142699683973034}
   - component: {fileID: 114957571760376050}
@@ -2005,24 +2004,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &95061553466694002
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1172694934059558}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
-  m_Controller: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114364366509621052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2055,10 +2036,6 @@ MonoBehaviour:
   weaponSocket: {fileID: 1118764924634174}
   animatorOverrideController: {fileID: 22100000, guid: 196e103e024ad48449a432eccc93e2be,
     type: 2}
-  abilities:
-  - {fileID: 11400000, guid: 579543e98c54f3b40bf884609b2aeaed, type: 2}
-  - {fileID: 11400000, guid: ddc57ccae22e65046a12353746edd79f, type: 2}
-  - {fileID: 11400000, guid: ed245d592383945498b2646248d6a901, type: 2}
   criticalHitChanse: 0.1
   criticalHitMultiplier: 1.25
   criticalhitParticle: {fileID: 198848118432301438}
@@ -2075,7 +2052,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnergyPoints: 100
   regenPointsPerSecond: 5
-  energyImage: {fileID: 0}
+  energyBar: {fileID: 0}
+  outOfEnergy: {fileID: 8300000, guid: c7b6da8a37e2ce6498fb3fe8ae6f8b8b, type: 3}
+  abilities:
+  - {fileID: 11400000, guid: 579543e98c54f3b40bf884609b2aeaed, type: 2}
+  - {fileID: 11400000, guid: ddc57ccae22e65046a12353746edd79f, type: 2}
+  - {fileID: 11400000, guid: ed245d592383945498b2646248d6a901, type: 2}
 --- !u!114 &114957571760376050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2093,6 +2075,10 @@ MonoBehaviour:
   MovingTurnSpeed: 360
   StationaryMovement: 180
   moveThreshHold: 1
+  animatorController: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+  animatorOverrideController: {fileID: 22100000, guid: 196e103e024ad48449a432eccc93e2be,
+    type: 2}
+  characterAvatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
 --- !u!136 &136142699683973034
 CapsuleCollider:
   m_ObjectHideFlags: 1

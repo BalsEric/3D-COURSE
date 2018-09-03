@@ -20,7 +20,7 @@ namespace RPG.PlayerCH
             float damageToDeal = (config as AOEAttackConfig).GetAOEDamageToEachTarget();
             foreach (RaycastHit hit in hits)
             {
-                bool hitPlayer = hit.collider.gameObject.GetComponent<Player>();
+                bool hitPlayer = hit.collider.gameObject.GetComponent<PlayerMovement>();
                 var damagable = hit.collider.gameObject.GetComponent<HealthSystem>();
                 if (damagable != null && !hitPlayer)
                 {

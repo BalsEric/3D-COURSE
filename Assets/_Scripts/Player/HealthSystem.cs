@@ -16,13 +16,13 @@ namespace RPG.PlayerCH
         float currentHealthPoints = 0;
         Animator animator;
         AudioSource audioSource;
-        CharacterMovement characterMovement;
+        Character characterMovement;
          public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
         // Use this for initialization
         void Start() {
             animator = GetComponent<Animator>();
             audioSource = GetComponent<AudioSource>();
-            characterMovement = GetComponent<CharacterMovement>();
+            characterMovement = GetComponent<Character>();
             currentHealthPoints = maxHealthPoints;
         }
 
@@ -58,7 +58,7 @@ namespace RPG.PlayerCH
             StopAllCoroutines();
             characterMovement.Kill();
             animator.SetTrigger(DEATH_TRIGGER);
-            var playerComponment = GetComponent<Player>();
+            var playerComponment = GetComponent<PlayerMovement>();
             if(playerComponment && playerComponment.isActiveAndEnabled)
             {
                 audioSource.clip = deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];
