@@ -112,7 +112,7 @@ namespace RPG.Characters
             ApplyExtraTurnRotation();
             UpdateAnimator();
         }
-        public float GetAnimationSpeedMultiplier()
+        public float GetAnimSpeedMultiplier()
         {
             return animator.speed;
         }

@@ -25,7 +25,7 @@ namespace RPG.Characters
         {
             return weaponPrefab;
         }
-        public AnimationClip GetAttackAnimationClip()
+        public AnimationClip GetAttackAnimClip()
         {
             attackAnimation.events = new AnimationEvent[0]; // removing animation events
             return attackAnimation;

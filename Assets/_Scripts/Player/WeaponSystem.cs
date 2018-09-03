@@ -1,80 +1,87 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Assertions;
 using UnityEngine;
 
 namespace RPG.Characters
 {
     public class WeaponSystem : MonoBehaviour
     {
-        [SerializeField] GameObject weaponSocket;
+
         [SerializeField] float baseDamage = 10f;
         [SerializeField] WeaponConfig currentWeaponConfig = null;
-
-        float lastHitTime;
-        GameObject weaponObject;
+        [SerializeField] GameObject weaponSocket;
         GameObject target;
+        GameObject weaponObject;
         Animator animator;
         Character character;
+        float lastHitTime;
+
         const string ATTACK_TRIGGER = "attack";
         const string DEFAULT_ATTACK = "DEFAULT ATTACK";
+
+        // Use this for initialization
         void Start()
         {
             animator = GetComponent<Animator>();
+            character = GetComponent<Character>();
+
             PutWeaponInHand(currentWeaponConfig);
             SetAttackAnimation();
-            character = GetComponent<Character>();
         }
-        public void SetAttackAnimation()
+
+        // Update is called once per frame
+        void Update()
         {
-            Debug.Log("SET ATTACK ANIMATION");
-            if(!character.GetOverrideController())
-            {
-                Debug.Log(" NOT OVERRIDE");
-            }
-            else
-            {
-                Debug.Log("OVERRIDE 1");
-                var animatorOverrideCOntroller= character.GetOverrideController();
-                Debug.Log("OVERRIDE 2");
-                animator.runtimeAnimatorController = animatorOverrideCOntroller;
-                Debug.Log("OVERRIDE 3");
-                animatorOverrideCOntroller[DEFAULT_ATTACK] = currentWeaponConfig.GetAttackAnimationClip();
-                Debug.Log("OVERRIDE 4");
-            }
-            Debug.Log("OVERRIDE 5");
+            // todo check continuously if we should still be attacking
 
         }
+
+        public void PutWeaponInHand(WeaponConfig weaponToUse)
+        {
+            currentWeaponConfig = weaponToUse;
+            var weaponPrefab = weaponToUse.GetWeaponPrefab();
+          
+            Destroy(weaponObject); // empty hands
+            weaponObject = Instantiate(weaponPrefab, weaponSocket.transform);
+            weaponObject.transform.localPosition = currentWeaponConfig.gripTransform.localPosition;
+            weaponObject.transform.localRotation = currentWeaponConfig.gripTransform.localRotation;
+        }
+
         public void AttackTarget(GameObject targetToAttack)
         {
             target = targetToAttack;
             StartCoroutine(AttackTargetRepeatedly());
         }
+
+
         IEnumerator AttackTargetRepeatedly()
         {
+            // determine if alive (attacker and defender)
             bool attackerStillAlive = GetComponent<HealthSystem>().healthAsPercentage >= Mathf.Epsilon;
             bool targetStillAlive = target.GetComponent<HealthSystem>().healthAsPercentage >= Mathf.Epsilon;
-            while(attackerStillAlive && targetStillAlive)
+
+            while (attackerStillAlive && targetStillAlive)
             {
                 float weaponHitPeriod = currentWeaponConfig.GetMinTimeBetweenHits();
-                float timeToWait = weaponHitPeriod * character.GetAnimationSpeedMultiplier();
-                bool isTimeToHitAgain = (Time.time - lastHitTime) > timeToWait;
-                if(isTimeToHitAgain)
+                float timeToWait = weaponHitPeriod * character.GetAnimSpeedMultiplier();
+
+                bool isTimeToHitAgain = Time.time - lastHitTime > timeToWait;
+
+                if (isTimeToHitAgain)
                 {
                     AttackTargetOnce();
                     lastHitTime = Time.time;
                 }
                 yield return new WaitForSeconds(timeToWait);
             }
-            
-
         }
 
         void AttackTargetOnce()
         {
             transform.LookAt(target.transform);
             animator.SetTrigger(ATTACK_TRIGGER);
-            float damageDelay = 1f;
+            float damageDelay = 1.0f; // todo get from the weapon
             SetAttackAnimation();
             StartCoroutine(DamageAfterDelay(damageDelay));
         }
@@ -89,27 +96,36 @@ namespace RPG.Characters
         {
             return currentWeaponConfig;
         }
+
+        private void SetAttackAnimation()
+        {
+            if (!character.GetOverrideController())
+            {
+                Debug.Break();
+                Debug.LogAssertion("Please provide " + gameObject + " with an animator override controller.");
+            }
+            else
+            {
+                var animatorOverrideController = character.GetOverrideController();
+                animator.runtimeAnimatorController = animatorOverrideController;
+                animatorOverrideController[DEFAULT_ATTACK] = currentWeaponConfig.GetAttackAnimClip();
+            }
+        }
+
+       
+        private void AttackTarget()
+        {
+            if (Time.time - lastHitTime > currentWeaponConfig.GetMinTimeBetweenHits())
+            {
+                SetAttackAnimation();
+                animator.SetTrigger(ATTACK_TRIGGER);
+                lastHitTime = Time.time;
+            }
+        }
+
         private float CalculateDamage()
         {
-           
             return baseDamage + currentWeaponConfig.GetAdditionalDamage();
-            
-            
-        }
-        public void PutWeaponInHand(WeaponConfig weaponToUse)
-        {
-            currentWeaponConfig = weaponToUse;
-            var weaponPrefab = weaponToUse.GetWeaponPrefab();
-            Destroy(weaponObject);
-            weaponObject = Instantiate(weaponPrefab, weaponSocket.transform);
-
-            weaponObject.transform.localPosition = currentWeaponConfig.gripTransform.localPosition;
-            weaponObject.transform.localRotation = currentWeaponConfig.gripTransform.localRotation;
-        }
-        // Update is called once per frame
-        void Update()
-        {
-
         }
     }
 }
