@@ -19,15 +19,16 @@ namespace RPG.Characters
         CameraRaycaster cameraRaycaster=null;
        
         Character character;
-       
+        [Range(.1f, 1.0f)] [SerializeField] float criticalHitChance = 0.1f;
+        [SerializeField] float criticalHitMultiplier = 1.25f;
+        [SerializeField] ParticleSystem criticalHitParticle = null;
+
         void Start()
         {
             character = GetComponent<Character>();
             RegisterForMouseEvents();
             abilities = GetComponent<SpecialAbilities>();
             weaponSystem = GetComponent<WeaponSystem>();
-           
-           
         }
         void Update()
         {

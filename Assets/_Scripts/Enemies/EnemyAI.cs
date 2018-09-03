@@ -6,14 +6,16 @@ using System;
 
 namespace RPG.EnemyCH
 {
+    [RequireComponent(typeof(HealthSystem))]
     [RequireComponent(typeof(Character))]
     [RequireComponent(typeof(WeaponSystem))]
     public class EnemyAI : MonoBehaviour
     {
         [SerializeField] float chaseRadius = 6f;
         [SerializeField] WaypointContainer patrolPath;
+        [SerializeField] float waypoinTolerance = 2f;
         float currentWeaponRange;
-        enum State {  idle,patroling, attacking,chase}
+        enum State {idle,patroling,attacking,chase}
         State state = State.idle;
         PlayerMovement player = null;
         float distanceToPlayer;
@@ -68,21 +70,20 @@ namespace RPG.EnemyCH
 
         private void CycleWaypointsWhenClose(Vector3 nextWaypointPos)
         {
-           
+            if(Vector3.Distance(transform.position,nextWaypointPos) <= waypoinTolerance)
+            {
+                nextWaypointIndex = (nextWaypointIndex + 1) % patrolPath.transform.childCount;
+            }
+         
         }
 
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, currentWeaponRange);
-
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, chaseRadius);
-
         }
-
-
-
     }
 }
 

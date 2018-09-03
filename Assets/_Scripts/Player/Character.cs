@@ -17,7 +17,7 @@ namespace RPG.Characters
       
         [Header("Animator Settings")]
         [SerializeField] RuntimeAnimatorController animatorController;
-        [SerializeField] AnimatorOverrideController animatorOverrideController;
+        [SerializeField] AnimatorOverrideController animatorOverrideController=null;
         [SerializeField] Avatar characterAvatar;
 
         [Header("Capsule Collider Settings")]
@@ -111,6 +111,10 @@ namespace RPG.Characters
             SetForwardAndTurn(movement);
             ApplyExtraTurnRotation();
             UpdateAnimator();
+        }
+        public float GetAnimationSpeedMultiplier()
+        {
+            return animator.speed;
         }
         private void SetForwardAndTurn(Vector3 movement)
         {
