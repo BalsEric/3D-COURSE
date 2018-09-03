@@ -16,7 +16,7 @@ namespace RPG.CameraUI
         const int POTENTIALLY_WALKABLE_LAYER = 8;
         float maxRaycastDepth = 100f; // Hard coded value
 
-        public delegate void OnMouseOverEnemy(Enemy enemy);
+        public delegate void OnMouseOverEnemy(EnemyAI enemy);
 		public event OnMouseOverEnemy onMouseOverEnemy;
 
 		public delegate void OnMouseOverTerrain(Vector3 destination);
@@ -54,7 +54,7 @@ namespace RPG.CameraUI
             Physics.Raycast(ray, out hitInfo, maxRaycastDepth);
             var gameObjectHit = hitInfo.collider.gameObject;
            
-            var enemyHit = gameObjectHit.GetComponent<Enemy>();
+            var enemyHit = gameObjectHit.GetComponent<EnemyAI>();
             if (enemyHit)
             {
                 Cursor.SetCursor(enemyCursor, cursorHotspot, CursorMode.Auto);

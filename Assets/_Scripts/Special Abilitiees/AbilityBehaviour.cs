@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace RPG.PlayerCH
+namespace RPG.Characters
 {
 
     public abstract class AbilityBehaviour : MonoBehaviour

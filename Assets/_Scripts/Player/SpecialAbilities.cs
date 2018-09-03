@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using RPG.EnemyCH;
-namespace RPG.PlayerCH
+namespace RPG.Characters
 {
    
     public class SpecialAbilities : MonoBehaviour

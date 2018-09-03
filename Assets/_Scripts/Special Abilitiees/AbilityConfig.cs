@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RPG.Core;
-namespace RPG.PlayerCH
+using RPG.Characters;
+namespace RPG.Characters
 {
     
     public abstract class AbilityConfig : ScriptableObject

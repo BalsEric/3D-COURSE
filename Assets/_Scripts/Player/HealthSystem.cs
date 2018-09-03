@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-namespace RPG.PlayerCH
+namespace RPG.Characters
 {
 
     public class HealthSystem : MonoBehaviour {

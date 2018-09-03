@@ -3,7 +3,7 @@ using UnityEngine;
 using RPG.CameraUI;
 using UnityEngine.AI;
 using RPG.EnemyCH;
-namespace RPG.PlayerCH
+namespace RPG.Characters
 {
     [SelectionBase]
     public class Character : MonoBehaviour
@@ -73,7 +73,10 @@ namespace RPG.PlayerCH
             
 
         }
-       
+        public AnimatorOverrideController GetOverrideController()
+        {
+            return animatorOverrideController;
+        }
         void Update()
         {
             if(navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance && isAlive)

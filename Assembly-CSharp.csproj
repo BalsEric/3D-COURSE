@@ -91,14 +91,16 @@
     <Compile Include="Assets\_Scripts\Core\AudioTrigger.cs" />
     <Compile Include="Assets\_Scripts\Core\Projectile.cs" />
     <Compile Include="Assets\_Scripts\Core\SpinMe.cs" />
-    <Compile Include="Assets\_Scripts\Core\Weapon.cs" />
-    <Compile Include="Assets\_Scripts\Enemies\Enemy.cs" />
+    <Compile Include="Assets\_Scripts\Core\WeaponConfig.cs" />
+    <Compile Include="Assets\_Scripts\Core\WeaponPickUpPoint.cs" />
+    <Compile Include="Assets\_Scripts\Enemies\EnemyAI.cs" />
     <Compile Include="Assets\_Scripts\Enemies\EnemyUI.cs" />
     <Compile Include="Assets\_Scripts\Player\CameraFollow.cs" />
     <Compile Include="Assets\_Scripts\Player\Character.cs" />
     <Compile Include="Assets\_Scripts\Player\HealthSystem.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\_Scripts\Player\SpecialAbilities.cs" />
+    <Compile Include="Assets\_Scripts\Player\WeaponSystem.cs" />
     <Compile Include="Assets\_Scripts\Special Abilitiees\AbilityBehaviour.cs" />
     <Compile Include="Assets\_Scripts\Special Abilitiees\AbilityConfig.cs" />
     <Compile Include="Assets\_Scripts\Special Abilitiees\AEO attacks\AOEAttackBehaviour.cs" />
@@ -107,7 +109,6 @@
     <Compile Include="Assets\_Scripts\Special Abilitiees\Power Attack\PowerAttackConfig.cs" />
     <Compile Include="Assets\_Scripts\Special Abilitiees\Self Heal\SelfHealBehaviour.cs" />
     <Compile Include="Assets\_Scripts\Special Abilitiees\Self Heal\SelfHealConfig.cs" />
-    <Compile Include="Assets\WeaponPickUpPoint.cs" />
     <None Include="Assets\_Animations\Elements\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
     <None Include="Assets\_Animations\Elements\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
     <None Include="Assets\_Animations\Elements\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
@@ -147,7 +148,7 @@
     <None Include="Assets\_Animations\Elements\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
     <None Include="Assets\_Animations\Elements\ImageEffects\Shaders\CameraMotionBlurDX11.shader" />
     <None Include="Assets\_Animations\Elements\ImageEffects\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
-    <None Include="Assets\Asset Packs - For Students\SimpleFX - Synty\Materials\UnlitVertexColour_Alpha.shader" />
+    <None Include="Assets\_Prefab\Asset Packs - For Students\SimpleFX - Synty\Materials\UnlitVertexColour_Alpha.shader" />
     <None Include="Assets\_Animations\Elements\ImageEffects\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
     <None Include="Assets\_Animations\Elements\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
     <None Include="Assets\_Animations\Elements\ImageEffects\Shaders\CameraMotionBlur.shader" />
@@ -165,7 +166,6 @@
     <None Include="Assets\_Animations\Elements\ImageEffects\Shaders\NoiseAndGrain.shader" />
     <None Include="Assets\_Prefab\Particles\Almgp_particle_vol_1\shaders\mesh_dissolve_particel.shader" />
     <None Include="Assets\_Animations\Elements\ImageEffects\Shaders\VignettingShader.shader" />
-    <None Include="Assets\_Prefab\player\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
     <None Include="Assets\_Animations\Elements\ImageEffects\Shaders\Tonemapper.shader" />
     <None Include="Assets\_Animations\Elements\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
     <None Include="Assets\_Animations\Elements\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />

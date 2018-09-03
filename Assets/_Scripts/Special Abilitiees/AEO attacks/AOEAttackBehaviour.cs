@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RPG.Core;
+using RPG.Characters;
 using System;
 
-namespace RPG.PlayerCH
+namespace RPG.Characters
 {
     public class AOEAttackBehaviour : AbilityBehaviour
     {

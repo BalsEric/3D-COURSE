@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RPG.PlayerCH
+namespace RPG.Characters
 {
     public class SelfHealBehaviour: AbilityBehaviour
     {
