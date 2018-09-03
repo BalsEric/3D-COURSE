@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using RPG.EnemyCH;
+
 namespace RPG.Characters
 {
    

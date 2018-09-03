@@ -95,11 +95,11 @@
     <Compile Include="Assets\_Scripts\Core\WeaponConfig.cs" />
     <Compile Include="Assets\_Scripts\Core\WeaponPickUpPoint.cs" />
     <Compile Include="Assets\_Scripts\Enemies\EnemyAI.cs" />
-    <Compile Include="Assets\_Scripts\Enemies\EnemyUI.cs" />
+    <Compile Include="Assets\_Scripts\Enemies\FaceCamera.cs" />
     <Compile Include="Assets\_Scripts\Player\CameraFollow.cs" />
     <Compile Include="Assets\_Scripts\Player\Character.cs" />
     <Compile Include="Assets\_Scripts\Player\HealthSystem.cs" />
-    <Compile Include="Assets\_Scripts\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\_Scripts\Player\PlayerControl.cs" />
     <Compile Include="Assets\_Scripts\Player\SpecialAbilities.cs" />
     <Compile Include="Assets\_Scripts\Player\WeaponSystem.cs" />
     <Compile Include="Assets\_Scripts\Special Abilitiees\AbilityBehaviour.cs" />

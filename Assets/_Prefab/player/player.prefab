@@ -1625,8 +1625,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1172694934059558}
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -17.61, y: 8.34, z: -81.09}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -11.907883, y: 8.002197, z: -80.77269}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4890105597464382}
@@ -1904,8 +1904,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthPoints: 100
   healthbar: {fileID: 0}
-  damageSounds: []
-  deathSounds: []
+  damageSounds:
+  - {fileID: 8300000, guid: 8e97b7f1bb5547b41968b450793a2eca, type: 3}
+  - {fileID: 8300000, guid: 470406038af134c47baef0cf8ec967a6, type: 3}
+  - {fileID: 8300000, guid: 17df37a44570a0249af314e0202fae0b, type: 3}
+  - {fileID: 8300000, guid: c56ed77ae38c6c240892ef474aae1eaa, type: 3}
+  - {fileID: 8300000, guid: 74ed059772e698b44932306d9b4e96ce, type: 3}
+  - {fileID: 8300000, guid: 9446233d605e327499614b82d88eaf8f, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 3543bc6b7464fb847b96bcf029d7b9ab, type: 3}
+  - {fileID: 8300000, guid: 3d3ea1cd55668ea48b0737aeebc47886, type: 3}
+  - {fileID: 8300000, guid: 64a90a8329ec63449ab827ef6055b965, type: 3}
   deathVanishSeconds: 1
 --- !u!114 &114429595956669894
 MonoBehaviour:
@@ -1918,10 +1927,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5401c0388b180234c98e4a8902ad0c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSocket: {fileID: 1118764924634174}
   baseDamage: 10
   currentWeaponConfig: {fileID: 11400000, guid: e5228fbe3475a034d8536c0abce66c2e,
     type: 2}
+  weaponSocket: {fileID: 1118764924634174}
 --- !u!114 &114598199758660750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1933,9 +1942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b32b95a8488b8449216425574a4691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  criticalHitChanse: 0.1
-  criticalHitMultiplier: 1.25
-  criticalhitParticle: {fileID: 198848118432301438}
 --- !u!114 &114948887619391514
 MonoBehaviour:
   m_ObjectHideFlags: 1

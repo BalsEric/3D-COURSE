@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System;
-using RPG.EnemyCH; // So we can detectect by type
+
 using RPG.Characters;
 namespace RPG.CameraUI
 {

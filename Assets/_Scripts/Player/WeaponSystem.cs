@@ -33,7 +33,28 @@ namespace RPG.Characters
         // Update is called once per frame
         void Update()
         {
-            // todo check continuously if we should still be attacking
+            bool targetIsDead;
+            bool targetIsOutOfRange;
+            if(target == null)
+            {
+                targetIsDead = false;
+                targetIsOutOfRange = false;
+            }
+            else
+            {
+                var targethealth = target.GetComponent<HealthSystem>().healthAsPercentage;
+                targetIsDead = targethealth <= Mathf.Epsilon;
+
+                var distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+                targetIsOutOfRange = distanceToTarget > currentWeaponConfig.GetMaxAttackRange();
+            }
+            float characterHealth = GetComponent<HealthSystem>().healthAsPercentage;
+            bool characterIsDead = (characterHealth <= Mathf.Epsilon);
+
+            if(characterIsDead || targetIsOutOfRange || targetIsDead)
+            {
+                StopAllCoroutines();
+            }
 
         }
 
@@ -126,6 +147,10 @@ namespace RPG.Characters
         private float CalculateDamage()
         {
             return baseDamage + currentWeaponConfig.GetAdditionalDamage();
+        }
+        public void StopAttacking()
+        {
+            StopAllCoroutines();
         }
     }
 }

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using RPG.CameraUI;
 using UnityEngine.AI;
-using RPG.EnemyCH;
+
 namespace RPG.Characters
 {
     [SelectionBase]

@@ -13,6 +13,7 @@ namespace RPG.Characters
             DealRadialDamage();
             PlayParticleEfect();
             PlayAbilitySound();
+            PlayAbilityAnimation();
         }
         private void DealRadialDamage()
         {
@@ -20,7 +21,7 @@ namespace RPG.Characters
             float damageToDeal = (config as AOEAttackConfig).GetAOEDamageToEachTarget();
             foreach (RaycastHit hit in hits)
             {
-                bool hitPlayer = hit.collider.gameObject.GetComponent<PlayerMovement>();
+                bool hitPlayer = hit.collider.gameObject.GetComponent<PlayerControl>();
                 var damagable = hit.collider.gameObject.GetComponent<HealthSystem>();
                 if (damagable != null && !hitPlayer)
                 {
