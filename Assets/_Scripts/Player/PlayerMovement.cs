@@ -20,11 +20,6 @@ namespace RPG.Characters
        
         Character character;
        
-        
-        
-        [Range(.1f, 1.0f)] [SerializeField] float criticalHitChanse = 0.1f;
-        [SerializeField] float criticalHitMultiplier = 1.25f;
-        [SerializeField] ParticleSystem criticalhitParticle = null;
         void Start()
         {
             character = GetComponent<Character>();

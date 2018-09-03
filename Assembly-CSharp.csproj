@@ -91,6 +91,7 @@
     <Compile Include="Assets\_Scripts\Core\AudioTrigger.cs" />
     <Compile Include="Assets\_Scripts\Core\Projectile.cs" />
     <Compile Include="Assets\_Scripts\Core\SpinMe.cs" />
+    <Compile Include="Assets\_Scripts\Core\WaypointContainer.cs" />
     <Compile Include="Assets\_Scripts\Core\WeaponConfig.cs" />
     <Compile Include="Assets\_Scripts\Core\WeaponPickUpPoint.cs" />
     <Compile Include="Assets\_Scripts\Enemies\EnemyAI.cs" />
