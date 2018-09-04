@@ -21,21 +21,10 @@ namespace RPG.Characters
            
             if (shooter && LayerCollidedWith != shooter.layer)
             {
-               // DamageIfDamagable(collision);
+              
             }
         }
-        //private void DamageIfDamagable(Collision collision)
-        //{
-        //    Component damagableComponent = collision.gameObject.GetComponent(typeof(IDamagable));
-
-        //    if (damagableComponent)
-        //    {
-        //        (damagableComponent as IDamagable).TakeDamage(damageCause);
-
-
-        //    }
-        //    Destroy(gameObject, DESTROY_DELAY);
-        //}
+       
 
         private void SetDamage(float damage)
         {

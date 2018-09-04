@@ -7,7 +7,7 @@ public class AudioTrigger : MonoBehaviour
     [SerializeField] float triggerRadius = 5f;
     [SerializeField] bool isOneTimeOnly = true;
 
-    [SerializeField] bool hasPlayed = false;
+    bool hasPlayed = false;
     AudioSource audioSource;
 
     void Start()
@@ -16,19 +16,9 @@ public class AudioTrigger : MonoBehaviour
         audioSource.playOnAwake = false;
         audioSource.clip = clip;
 
-        SphereCollider sphereCollider = gameObject.AddComponent<SphereCollider>();
-        sphereCollider.isTrigger = true;
-        sphereCollider.radius = triggerRadius;
-        gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+        
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == layerFilter)
-        {
-            RequestPlayAudioClip();
-        }
-    }
 
     void RequestPlayAudioClip()
     {
